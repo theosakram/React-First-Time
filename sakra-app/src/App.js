@@ -8,10 +8,14 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    const result = await (
-      await fetch("https://api.pokemontcg.io/v1/cards")
-    ).json();
-    this.setState({ pokemons: result.cards });
+    try {
+      const result = await (
+        await fetch("https://api.pokemontcg.io/v1/cards")
+      ).json();
+      this.setState({ pokemons: result.cards });
+    } catch (err) {
+      throw new Error(err);
+    }
   }
 
   render() {

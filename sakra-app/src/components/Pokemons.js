@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import PokemonCard from "./PokemonCard";
+import PokemonContainer from "./PokemonContainer";
 
-class App extends Component {
+class Pokemons extends Component {
   state = {
     poke: [],
   };
@@ -15,49 +15,36 @@ class App extends Component {
         ]
     );
     this.setState({ poke: newPokemonArr });
+    return newPokemonArr;
   };
+
+  // async componentDidMount() {
+  //   try {
+  //     const result = await this.randArr();
+  //   } catch (err) {
+  //     next(err);
+  //   }
+  // }
 
   render() {
     const { poke } = this.state;
+    const { pokemons } = this.props;
+    const pokemonStarter = pokemons.filter((x, y) => y < 5);
     if (!poke.length) {
-      const { pokemons } = this.props;
       return (
-        <div className="container">
-          <div className="columns">
-            {pokemons
-              .filter((x, y) => y < 5)
-              .map((pokemon) => (
-                <PokemonCard
-                  key={pokemon.id}
-                  pokemon={pokemon.name}
-                  image={pokemon.imageUrl}
-                />
-              ))}
-          </div>
-          <button className="button is-success" onClick={this.randArr}>
-            Random
-          </button>
-        </div>
-      );
-    } else {
-      return (
-        <div className="container">
-          <div className="columns">
-            {poke.map((pokemon) => (
-              <PokemonCard
-                key={pokemon.id}
-                pokemon={pokemon.name}
-                image={pokemon.imageUrl}
-              />
-            ))}
-          </div>
-          <button className="button is-success" onClick={this.randArr}>
-            Random
-          </button>
-        </div>
+        <PokemonContainer
+          pokemons={pokemonStarter}
+          randomizer={this.randArr}
+        ></PokemonContainer>
       );
     }
+    return (
+      <PokemonContainer
+        pokemons={poke}
+        randomizer={this.randArr}
+      ></PokemonContainer>
+    );
   }
 }
 
-export default App;
+export default Pokemons;
