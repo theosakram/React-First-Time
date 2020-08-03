@@ -18,29 +18,19 @@ class Pokemons extends Component {
     return newPokemonArr;
   };
 
-  // async componentDidMount() {
-  //   try {
-  //     const result = await this.randArr();
-  //   } catch (err) {
-  //     next(err);
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (prevProps.pokemons !== this.props.pokemons) {
+      const result = this.randArr();
+    }
+  }
 
   render() {
     const { poke } = this.state;
     const { pokemons } = this.props;
     const pokemonStarter = pokemons.filter((x, y) => y < 5);
-    if (!poke.length) {
-      return (
-        <PokemonContainer
-          pokemons={pokemonStarter}
-          randomizer={this.randArr}
-        ></PokemonContainer>
-      );
-    }
     return (
       <PokemonContainer
-        pokemons={poke}
+        pokemons={poke.length ? poke : pokemonStarter}
         randomizer={this.randArr}
       ></PokemonContainer>
     );
