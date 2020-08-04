@@ -20,17 +20,15 @@ class Pokemons extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.pokemons !== this.props.pokemons) {
-      const result = this.randArr();
+      this.randArr();
     }
   }
 
   render() {
     const { poke } = this.state;
-    const { pokemons } = this.props;
-    const pokemonStarter = pokemons.filter((x, y) => y < 5);
     return (
       <PokemonContainer
-        pokemons={poke.length ? poke : pokemonStarter}
+        pokemons={poke}
         randomizer={this.randArr}
       ></PokemonContainer>
     );
