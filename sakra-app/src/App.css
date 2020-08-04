@@ -37,7 +37,11 @@
   }
 }
 
-.card {
-  border-radius: 15px;
-  border: 1px solid black;
+.background {
+  background: #271033;
+}
+
+.card-hover:hover {
+  transform: scale(105%);
+  transition: 0.2s;
 }
