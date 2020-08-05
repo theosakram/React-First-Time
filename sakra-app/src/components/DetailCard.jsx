@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import Progress from "./ProgressOnDetail";
 import Swal from "sweetalert2";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import addFavorite from "../store/actions";
 
 function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
   const atkPercentage = atk / 50;
   const defPercentage = def / 50;
 
-  const [favorite, setFavorite] = useState([]);
-  const favorites = useSelector((state) => state.favorites);
   const dispatch = useDispatch();
 
   const handleFavorite = (value) => {
@@ -18,9 +16,7 @@ function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
       title: "Yes",
       text: "Card added to favorites",
     });
-    setFavorite(value);
     dispatch(addFavorite(value));
-    console.log(favorites);
   };
 
   return (

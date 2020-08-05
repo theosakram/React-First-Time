@@ -5,7 +5,7 @@ import useFetch from "../hooks/useFetch";
 
 function Traps() {
   const { data, loading, error } = useFetch(
-    "https://db.ygoprodeck.com/api/v7/cardinfo.php?type=trap%20card&num=20&offset=0"
+    "https://db.ygoprodeck.com/api/v7/cardinfo.php?type=trap%20card&num=50&offset=0"
   );
 
   return (
