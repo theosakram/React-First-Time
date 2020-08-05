@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 function Navbar() {
-  const type = [
+  const types = [
     "Effect",
     "Flip Effect",
     "Fusion",
@@ -17,7 +17,7 @@ function Navbar() {
     "Pendulum Tuner Effect",
   ];
 
-  const type2 = [
+  const types2 = [
     "Ritual",
     "Ritual Effect",
     "Spirit",
@@ -61,42 +61,11 @@ function Navbar() {
               <a class="navbar-link">Monsters One</a>
 
               <div class="navbar-dropdown">
-                <Link to={`/monsters/${type[0]}`} class="navbar-item">
-                  Effect
-                </Link>
-                <Link to={`/monsters/${type[1]}`} class="navbar-item">
-                  Flip Effect
-                </Link>
-                <Link to={`/monsters/${type[2]}`} class="navbar-item">
-                  Fusion
-                </Link>
-                <Link to={`/monsters/${type[3]}`} class="navbar-item">
-                  Gemini
-                </Link>
-                <Link to={`/monsters/${type[4]}`} class="navbar-item">
-                  Link
-                </Link>
-                <Link to={`/monsters/${type[5]}`} class="navbar-item">
-                  Normal
-                </Link>
-                <Link to={`/monsters/${type[6]}`} class="navbar-item">
-                  Normal Tuner
-                </Link>
-                <Link to={`/monsters/${type[7]}`} class="navbar-item">
-                  Pendulum Effect
-                </Link>
-                <Link to={`/monsters/${type[8]}`} class="navbar-item">
-                  Pendulum Effect Fusion
-                </Link>
-                <Link to={`/monsters/${type[9]}`} class="navbar-item">
-                  Pendulum Flip Effect
-                </Link>
-                <Link to={`/monsters/${type[10]}`} class="navbar-item">
-                  Pendulum Normal
-                </Link>
-                <Link to={`/monsters/${type[11]}`} class="navbar-item">
-                  Pendulum Tuner Effect
-                </Link>
+                {types.map((type) => (
+                  <Link to={`/monsters/${type}`} class="navbar-item">
+                    {type}
+                  </Link>
+                ))}
               </div>
             </div>
 
@@ -104,39 +73,11 @@ function Navbar() {
               <a class="navbar-link">Monsters Two</a>
 
               <div class="navbar-dropdown">
-                <Link to={`/monsters/${type2[0]}`} class="navbar-item">
-                  Ritual
-                </Link>
-                <Link to={`/monsters/${type2[1]}`} class="navbar-item">
-                  Ritual Effect
-                </Link>
-                <Link to={`/monsters/${type2[2]}`} class="navbar-item">
-                  Spirit
-                </Link>
-                <Link to={`/monsters/${type2[3]}`} class="navbar-item">
-                  Synchro
-                </Link>
-                <Link to={`/monsters/${type2[4]}`} class="navbar-item">
-                  Synchro Pendulum Effect
-                </Link>
-                <Link to={`/monsters/${type2[5]}`} class="navbar-item">
-                  Synchro Tuner
-                </Link>
-                <Link to={`/monsters/${type2[6]}`} class="navbar-item">
-                  Toon
-                </Link>
-                <Link to={`/monsters/${type2[7]}`} class="navbar-item">
-                  Tuner
-                </Link>
-                <Link to={`/monsters/${type2[8]}`} class="navbar-item">
-                  Union Effect
-                </Link>
-                <Link to={`/monsters/${type2[9]}`} class="navbar-item">
-                  XYZ
-                </Link>
-                <Link to={`/monsters/${type2[10]}`} class="navbar-item">
-                  XYZ Pendulum Effect
-                </Link>
+                {types2.map((type) => (
+                  <Link to={`/monsters/${type}`} class="navbar-item">
+                    {type}
+                  </Link>
+                ))}
               </div>
             </div>
 
