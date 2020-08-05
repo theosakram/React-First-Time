@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Progress from "./ProgressOnDetail";
 import Swal from "sweetalert2";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import addFavorite from "../store/actions";
 
 function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
@@ -9,14 +9,23 @@ function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
   const defPercentage = def / 50;
 
   const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites);
 
   const handleFavorite = (value) => {
-    Swal.fire({
-      icon: "success",
-      title: "Yes",
-      text: "Card added to favorites",
-    });
-    dispatch(addFavorite(value));
+    if (favorites.includes(value)) {
+      Swal.fire({
+        icon: "error",
+        title: "No",
+        text: "Card has already been favorited",
+      });
+    } else {
+      Swal.fire({
+        icon: "success",
+        title: "Yes",
+        text: "Card added to favorites",
+      });
+      dispatch(addFavorite(value));
+    }
   };
 
   return (
