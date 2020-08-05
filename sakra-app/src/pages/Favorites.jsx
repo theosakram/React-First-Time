@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 function Favorites() {
   const favorites = useSelector((state) => state.favorites);
-  // const newFavorites = [...new Set(favorites)];
 
   return (
     <div className="container" style={{ marginTop: "25px" }}>
