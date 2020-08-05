@@ -88,6 +88,10 @@ function Navbar() {
               Traps
             </Link>
           </div>
+          <Link to="/favorites" className="navbar-item">
+            <i class="fas fa-heart" style={{ marginRight: "5px" }}></i>{" "}
+            Favorites
+          </Link>
         </div>
       </nav>
     </>

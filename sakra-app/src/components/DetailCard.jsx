@@ -1,9 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Progress from "./ProgressOnDetail";
+import Swal from "sweetalert2";
+import { useSelector, useDispatch } from "react-redux";
+import addFavorite from "../store/actions";
 
-function DetailCard({ id, card, atk, def, price, type, desc, level }) {
+function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
   const atkPercentage = atk / 50;
   const defPercentage = def / 50;
+
+  const [favorite, setFavorite] = useState([]);
+  const favorites = useSelector((state) => state.favorites);
+  const dispatch = useDispatch();
+
+  const handleFavorite = (value) => {
+    Swal.fire({
+      icon: "success",
+      title: "Yes",
+      text: "Card added to favorites",
+    });
+    setFavorite(value);
+    dispatch(addFavorite(value));
+    console.log(favorites);
+  };
+
   return (
     <div>
       <div className="column">
@@ -32,7 +51,12 @@ function DetailCard({ id, card, atk, def, price, type, desc, level }) {
           <Progress percentage={defPercentage}></Progress>
 
           <div className="buttons is-centered" style={{ marginTop: "25px" }}>
-            <button className="button button-color">Wishlist</button>
+            <button
+              onClick={() => handleFavorite(image)}
+              className="button button-color"
+            >
+              Wishlist
+            </button>
             <button className="button button-color">Buy</button>
           </div>
         </div>
