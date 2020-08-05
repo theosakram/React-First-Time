@@ -1,11 +1,40 @@
 import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 function Navbar() {
+  const type = [
+    "Effect",
+    "Flip Effect",
+    "Fusion",
+    "Gemini",
+    "Link",
+    "Normal",
+    "Normal Tuner",
+    "Pendulum Effect",
+    "Pendulum Effect Fusion",
+    "Pendulum Flip Effect",
+    "Pendulum Normal",
+    "Pendulum Tuner Effect",
+  ];
+
+  const type2 = [
+    "Ritual",
+    "Ritual Effect",
+    "Spirit",
+    "Synchro",
+    "Synchro Pendulum Effect",
+    "Synchro Tuner",
+    "Toon",
+    "Tuner",
+    "Union Effect",
+    "XYZ",
+    "XYZ Pendulum Effect",
+  ];
   return (
     <>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="#">
+      <nav className="navbar" role="navigation" aria-label="main navigation">
+        <div className="navbar-brand">
+          <Link to="/" className="navbar-item">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Yu-Gi-Oh%21_%28Logo%29.jpg/1200px-Yu-Gi-Oh%21_%28Logo%29.jpg"
               width="112"
@@ -14,7 +43,7 @@ function Navbar() {
 
             <a
               role="button"
-              class="navbar-burger burger"
+              className="navbar-burger burger"
               aria-label="menu"
               aria-expanded="false"
               data-target="navbarBasicExample"
@@ -23,34 +52,100 @@ function Navbar() {
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
             </a>
-          </a>
+          </Link>
         </div>
 
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
+        <div id="navbarBasicExample" className="navbar-menu">
+          <div className="navbar-start">
             <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">Monsters</a>
+              <a class="navbar-link">Monsters One</a>
 
               <div class="navbar-dropdown">
-                <a class="navbar-item">By Type</a>
-                <a class="navbar-item">By Attributes</a>
-                <a class="navbar-item">By Race</a>
+                <Link to={`/monsters/${type[0]}`} class="navbar-item">
+                  Effect
+                </Link>
+                <Link to={`/monsters/${type[1]}`} class="navbar-item">
+                  Flip Effect
+                </Link>
+                <Link to={`/monsters/${type[2]}`} class="navbar-item">
+                  Fusion
+                </Link>
+                <Link to={`/monsters/${type[3]}`} class="navbar-item">
+                  Gemini
+                </Link>
+                <Link to={`/monsters/${type[4]}`} class="navbar-item">
+                  Link
+                </Link>
+                <Link to={`/monsters/${type[5]}`} class="navbar-item">
+                  Normal
+                </Link>
+                <Link to={`/monsters/${type[6]}`} class="navbar-item">
+                  Normal Tuner
+                </Link>
+                <Link to={`/monsters/${type[7]}`} class="navbar-item">
+                  Pendulum Effect
+                </Link>
+                <Link to={`/monsters/${type[8]}`} class="navbar-item">
+                  Pendulum Effect Fusion
+                </Link>
+                <Link to={`/monsters/${type[9]}`} class="navbar-item">
+                  Pendulum Flip Effect
+                </Link>
+                <Link to={`/monsters/${type[10]}`} class="navbar-item">
+                  Pendulum Normal
+                </Link>
+                <Link to={`/monsters/${type[11]}`} class="navbar-item">
+                  Pendulum Tuner Effect
+                </Link>
               </div>
             </div>
 
-            <a class="navbar-item">Spells</a>
-            <a class="navbar-item">Traps</a>
-            <a class="navbar-item">Card Sets</a>
-          </div>
-        </div>
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <a class="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a class="button is-light">Log in</a>
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">Monsters Two</a>
+
+              <div class="navbar-dropdown">
+                <Link to={`/monsters/${type2[0]}`} class="navbar-item">
+                  Ritual
+                </Link>
+                <Link to={`/monsters/${type2[1]}`} class="navbar-item">
+                  Ritual Effect
+                </Link>
+                <Link to={`/monsters/${type2[2]}`} class="navbar-item">
+                  Spirit
+                </Link>
+                <Link to={`/monsters/${type2[3]}`} class="navbar-item">
+                  Synchro
+                </Link>
+                <Link to={`/monsters/${type2[4]}`} class="navbar-item">
+                  Synchro Pendulum Effect
+                </Link>
+                <Link to={`/monsters/${type2[5]}`} class="navbar-item">
+                  Synchro Tuner
+                </Link>
+                <Link to={`/monsters/${type2[6]}`} class="navbar-item">
+                  Toon
+                </Link>
+                <Link to={`/monsters/${type2[7]}`} class="navbar-item">
+                  Tuner
+                </Link>
+                <Link to={`/monsters/${type2[8]}`} class="navbar-item">
+                  Union Effect
+                </Link>
+                <Link to={`/monsters/${type2[9]}`} class="navbar-item">
+                  XYZ
+                </Link>
+                <Link to={`/monsters/${type2[10]}`} class="navbar-item">
+                  XYZ Pendulum Effect
+                </Link>
+              </div>
             </div>
+
+            <Link to="/spells" className="navbar-item">
+              Spells
+            </Link>
+            <Link to="/traps" className="navbar-item">
+              Traps
+            </Link>
           </div>
         </div>
       </nav>

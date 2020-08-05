@@ -1,15 +1,27 @@
 import React from "react";
 import Progress from "./ProgressOnDetail";
 
-function DetailCard({ card, atk, def, price, type }) {
-  const atkPercentage = atk / 30;
-  const defPercentage = def / 30;
+function DetailCard({ id, card, atk, def, price, type, desc, level }) {
+  const atkPercentage = atk / 50;
+  const defPercentage = def / 50;
   return (
     <div>
       <div className="column">
         <div className="notification">
-          <h1 className="title"> {card} </h1>
-          <h1 className="has-text-weight-semibold subtitle">{type}</h1>
+          <h1 className="title has-text-left">
+            {" "}
+            {card}{" "}
+            <span style={{ float: "right" }}>
+              <i className="fas fa-star"></i> {level}
+            </span>{" "}
+          </h1>
+          <h1 className="has-text-weight-semibold has-text-left subtitle">
+            {type}/ ID: {id}
+          </h1>
+
+          <p className="has-text-justified" style={{ marginBottom: "15px" }}>
+            {desc}
+          </p>
 
           <h1 className="has-text-weight-semibold subtitle">$ {price}</h1>
 

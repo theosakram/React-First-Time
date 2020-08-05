@@ -1,17 +1,18 @@
 import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
-function YugiCards({ card, image }) {
+function YugiCard({ card, id, image }) {
   return (
     <div className="column is-one-fifth card-hover">
       <div className="card hoper">
         <div className="card-image">
-          <figure className="image">
+          <Link to={`/details/${id}`} className="image">
             <img src={image} alt={card} />
-          </figure>
+          </Link>
         </div>
       </div>
     </div>
   );
 }
 
-export default YugiCards;
+export default YugiCard;

@@ -1,29 +1,41 @@
 import React from "react";
 import YugiAll from "./components/YugiAll";
 import Navbar from "./components/Navbar";
-// import CardDetail from "./components/YugiDetails";
+import SearchBar from "./components/SearchBar";
 import Pagination from "./components/Pagination";
-import useFetch from "./hooks/useFetch";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Details, Home, Monsters, Spells, Traps } from "./pages";
 import "./App.css";
 
 function App() {
-  const { data, loading, error } = useFetch(
-    "https://db.ygoprodeck.com/api/v7/cardinfo.php?num=200&offset=50"
-  );
-
   return (
     <div className="App background">
-      <Navbar />
+      <Router>
+        <Navbar />
+        <SearchBar />
 
-      {<YugiAll cards={data} />}
-      {loading && <p className="has-text-white">Loading...</p>}
-      {error && <p className="has-text-white">{error.message}</p>}
+        <Switch>
+          <Route path="/traps">
+            <Traps />
+          </Route>
+          <Route path="/spells">
+            <Spells />
+          </Route>
+          <Route path="/monsters/:type" children={<Monsters />} />
+          <Route
+            path="/details/:id"
+            children={<Details />}
+            component={<Details />}
+          />
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
 
-      {/* <CardDetail cards={data} /> */}
-
-      <div className="container">
-        <Pagination />
-      </div>
+        <div className="container">
+          <Pagination />
+        </div>
+      </Router>
     </div>
   );
 }

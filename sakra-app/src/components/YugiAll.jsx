@@ -1,28 +1,20 @@
-import React, { useState, useEffect } from "react";
-import YugiCardContainers from "./YugiCardContainers";
+import React from "react";
+import YugiCard from "./YugiCard";
 
 function YugiAll({ cards }) {
-  const [newCards, setNewCards] = useState([]);
-
-  // useEffect((prevProps) => {
-  //   if (prevProps.cards !== cards) {
-  //     randArr();
-  //   }
-  // });
-
-  function randArr() {
-    let newYugiArr = Array.from(
-      { length: 20 },
-      (x, y) => cards[Math.floor(Math.random() * cards.length)]
-    );
-    setNewCards(newYugiArr);
-  }
-
   return (
-    <YugiCardContainers
-      cards={newCards}
-      randomizer={randArr}
-    ></YugiCardContainers>
+    <div className="container" style={{ marginTop: "25px" }}>
+      <div className="columns is-multiline">
+        {cards.map((card) => (
+          <YugiCard
+            id={card.id}
+            key={card.id}
+            card={card.name}
+            image={card.card_images[0].image_url}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
