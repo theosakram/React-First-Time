@@ -1,21 +1,33 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import SearchBar from "./components/SearchBar";
 import Pagination from "./components/Pagination";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Details, Favorites, Home, Monsters, Spells, Traps } from "./pages";
+import {
+  Details,
+  Names,
+  Favorites,
+  Home,
+  Monsters,
+  Spells,
+  Traps,
+} from "./pages";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App background">
+    <div
+      className="App"
+      style={{ paddingBottom: "25px", background: "#271033" }}
+    >
       <Router>
         <Navbar />
-        <SearchBar />
 
         <Switch>
           <Route path="/traps">
             <Traps />
+          </Route>
+          <Route path="/names/">
+            <Names />
           </Route>
           <Route path="/spells">
             <Spells />
@@ -30,9 +42,9 @@ function App() {
           </Route>
         </Switch>
 
-        <div className="container">
+        {/* <div className="container">
           <Pagination />
-        </div>
+        </div> */}
       </Router>
     </div>
   );
