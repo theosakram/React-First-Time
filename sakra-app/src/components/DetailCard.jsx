@@ -12,20 +12,12 @@ function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
   const favorites = useSelector((state) => state.favorites);
 
   const handleFavorite = (value) => {
-    if (favorites.includes(value)) {
-      Swal.fire({
-        icon: "error",
-        title: "No",
-        text: "Card has already been favorited",
-      });
-    } else {
-      Swal.fire({
-        icon: "success",
-        title: "Yes",
-        text: "Card added to favorites",
-      });
-      dispatch(addFavorite(value));
-    }
+    Swal.fire({
+      icon: "success",
+      title: "Yes",
+      text: "Card added to favorites",
+    });
+    dispatch(addFavorite(value));
   };
 
   return (
@@ -55,15 +47,20 @@ function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
           <h2 style={{ marginTop: "25px" }}>DEF:</h2>
           <Progress percentage={defPercentage}></Progress>
 
-          <div className="buttons is-centered" style={{ marginTop: "25px" }}>
-            <button
-              onClick={() => handleFavorite(image)}
-              className="button button-color"
-            >
-              Wishlist
-            </button>
-            <button className="button button-color">Buy</button>
-          </div>
+          {!favorites.includes(image) ? (
+            <div className="buttons is-centered" style={{ marginTop: "25px" }}>
+              <button
+                onClick={() => handleFavorite(image)}
+                className="button button-color"
+              >
+                Wishlist
+              </button>
+            </div>
+          ) : (
+            <div className="is-centered" style={{ marginTop: "25px" }}>
+              <h1>Card has already been favorited</h1>
+            </div>
+          )}
         </div>
       </div>
     </div>
