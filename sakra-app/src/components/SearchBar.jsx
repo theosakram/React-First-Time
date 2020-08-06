@@ -8,7 +8,7 @@ function SearchBar() {
   const [results, setResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
 
-  const debouncedSearch = useDebounce(searchTerm, 250);
+  const debouncedSearch = useDebounce(searchTerm, 500);
 
   useEffect(() => {
     if (debouncedSearch) {
