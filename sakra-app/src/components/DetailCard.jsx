@@ -58,7 +58,7 @@ function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
             </div>
           ) : (
             <div className="is-centered" style={{ marginTop: "25px" }}>
-              <h1>Card has already been favorited</h1>
+              <h1>Card has already been wished</h1>
             </div>
           )}
         </div>

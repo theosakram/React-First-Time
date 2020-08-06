@@ -3,8 +3,9 @@ import React from "react";
 function Loader() {
   return (
     <>
-      <div className="pageloader is-bottom-to-top is-active has-text-white">
-        <span className="title has-text-white">Loading</span>
+      <div className="spinner" style={{ margin: "auto" }}>
+        <div className="cube1"></div>
+        <div className="cube2"></div>
       </div>
     </>
   );

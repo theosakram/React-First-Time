@@ -29,7 +29,6 @@ function YugiDetails({ cards }) {
           />
         ))}
       </div>
-      ;
     </div>
   );
 }
