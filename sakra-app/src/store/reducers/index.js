@@ -1,15 +1,8 @@
-const initialState = {
-  favorites: [],
-};
+import { combineReducers } from "redux";
+import cards from "./cardReducer";
+import favorites from "./favoriteReducer";
 
-function reducer(state = initialState, action) {
-  if (action.type === "ADD_FAVORITE") {
-    return {
-      ...state,
-      favorites: state.favorites.concat(action.payload),
-    };
-  }
-  return state;
-}
-
-export default reducer;
+export default combineReducers({
+  cards,
+  favorites,
+});

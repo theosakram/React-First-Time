@@ -57,24 +57,24 @@ function Navbar() {
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">Monsters One</a>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link">Monsters One</a>
 
-              <div class="navbar-dropdown">
+              <div className="navbar-dropdown">
                 {types.map((type) => (
-                  <Link to={`/monsters/${type}`} class="navbar-item">
+                  <Link to={`/monsters/${type}`} className="navbar-item">
                     {type}
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">Monsters Two</a>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link">Monsters Two</a>
 
-              <div class="navbar-dropdown">
+              <div className="navbar-dropdown">
                 {types2.map((type) => (
-                  <Link to={`/monsters/${type}`} class="navbar-item">
+                  <Link to={`/monsters/${type}`} className="navbar-item">
                     {type}
                   </Link>
                 ))}
@@ -92,7 +92,7 @@ function Navbar() {
             </Link>
           </div>
           <Link to="/favorites" className="navbar-item">
-            <i class="fas fa-heart" style={{ marginRight: "5px" }}></i>{" "}
+            <i className="fas fa-heart" style={{ marginRight: "5px" }}></i>{" "}
             Favorites
           </Link>
         </div>
