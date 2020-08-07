@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {
-  Details,
-  Names,
-  Favorites,
-  Home,
-  Monsters,
-  Spells,
-  Traps,
-} from "./pages";
+import { Details, Names, Favorites, Home, Monsters, Types } from "./pages";
 import "./App.css";
 
 export const context = React.createContext();
@@ -34,14 +26,9 @@ function App() {
           <Navbar />
 
           <Switch>
-            <Route path="/traps">
-              <Traps />
-            </Route>
+            <Route path="/types/:type" children={<Types />} />
             <Route exact path="/By Names">
               <Names />
-            </Route>
-            <Route path="/spells">
-              <Spells />
             </Route>
             <Route path="/favorites">
               <Favorites />

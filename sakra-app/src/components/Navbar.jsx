@@ -34,7 +34,7 @@ function Navbar() {
     "XYZ Pendulum Effect",
   ];
 
-  const types3 = ["Spells", "Traps", "By Names"];
+  const types3 = ["Spells", "Traps"];
 
   const { theme } = useContext(context);
 
@@ -96,10 +96,14 @@ function Navbar() {
           </div>
 
           {types3.map((type) => (
-            <Link to={`/${type}`} className="navbar-item">
+            <Link to={`/types/${type}`} className="navbar-item">
               {type}
             </Link>
           ))}
+
+          <Link to={"/By Names"} className="navbar-item">
+            By Names
+          </Link>
         </div>
 
         {theme === "light" ? (
