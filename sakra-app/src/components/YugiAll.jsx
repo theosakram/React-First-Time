@@ -6,12 +6,13 @@ function YugiAll({ cards }) {
     <div className="container" style={{ marginTop: "25px" }}>
       <div className="columns is-multiline">
         {cards.map((card) => (
-          <YugiCard
-            id={card.id}
-            key={card.id}
-            card={card.name}
-            image={card.card_images[0].image_url}
-          />
+          <div data-testid="cards" key={card.id}>
+            <YugiCard
+              id={card.id}
+              card={card.name}
+              image={card.card_images[0].image_url}
+            />
+          </div>
         ))}
       </div>
     </div>

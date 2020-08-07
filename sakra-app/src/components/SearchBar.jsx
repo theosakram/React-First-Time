@@ -27,7 +27,7 @@ function SearchBar() {
   }, [debouncedSearch]);
 
   return (
-    <div style={{ marginTop: "25px" }}>
+    <div data-testid="SearchBar" style={{ marginTop: "25px" }}>
       <input
         placeholder="Search Card by Name"
         onChange={(e) => setSearchTerm(e.target.value)}

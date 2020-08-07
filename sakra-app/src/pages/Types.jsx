@@ -21,11 +21,11 @@ function Types() {
     );
   }, [newType]);
   return (
-    <>
+    <div data-testid="type">
       {<YugiAll cards={cards} />}
       {loading && <Loader />}
       {error && <p className="has-text-white">{error.message}</p>}
-    </>
+    </div>
   );
 }
 
