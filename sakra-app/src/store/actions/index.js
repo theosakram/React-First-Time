@@ -18,22 +18,21 @@ const setError = (message) => {
   return { type: "SET_LOADING_FALSE", payload: message };
 };
 
-function fetchData(url) {
+const fetchData = (url) => {
   return (dispatch) => {
-    dispatch(setLoadingTrue());
-    dispatch(setCards([]));
-    fetch(url)
-      .then((data) => data.json())
-      .then(({ data }) => {
-        dispatch(setCards(data));
-      })
-      .catch((err) => {
+    async function fetchCard() {
+      dispatch(setLoadingTrue());
+      dispatch(setCards([]));
+      try {
+        dispatch(setCards(await (await (await fetch(url)).json()).data));
+      } catch (err) {
         dispatch(setError(err.message));
-      })
-      .finally((data) => {
+      } finally {
         dispatch(setLoadingFalse());
-      });
+      }
+    }
+    fetchCard();
   };
-}
+};
 
 export default { addFavorite, setCards, fetchData };

@@ -37,7 +37,7 @@ function App() {
             <Route path="/traps">
               <Traps />
             </Route>
-            <Route path="/By Names">
+            <Route exact path="/By Names">
               <Names />
             </Route>
             <Route path="/spells">

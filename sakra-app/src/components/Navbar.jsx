@@ -96,7 +96,7 @@ function Navbar() {
           </div>
 
           {types3.map((type) => (
-            <Link to={type} className="navbar-item">
+            <Link to={`/${type}`} className="navbar-item">
               {type}
             </Link>
           ))}
