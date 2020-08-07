@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Progress from "./ProgressOnDetail";
 import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
 import allActions from "../store/actions/index";
+import { context } from "../App";
 
 function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
   const atkPercentage = atk / 50;
@@ -22,10 +23,12 @@ function DetailCard({ id, card, atk, def, price, type, desc, level, image }) {
     dispatch(addFavorite(value));
   };
 
+  const { theme } = useContext(context);
+
   return (
     <div>
       <div className="column">
-        <div className="notification">
+        <div className={`notification ${theme === "light" ? "is-dark" : ""}`}>
           <h1 className="title has-text-left">
             {" "}
             {card}{" "}
