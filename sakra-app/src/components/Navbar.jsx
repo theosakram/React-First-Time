@@ -40,6 +40,7 @@ function Navbar() {
 
   return (
     <nav
+      data-testid="Navbar"
       className={`navbar ${theme === "light" ? "is-light" : "is-dark"}`}
       role="navigation"
       aria-label="main navigation"
@@ -54,18 +55,6 @@ function Navbar() {
             width="112"
             height="28"
           ></img>
-
-          <a
-            role="button"
-            className="navbar-burger burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
         </Link>
       </div>
 
@@ -75,8 +64,12 @@ function Navbar() {
             <a className="navbar-link">Monsters One</a>
 
             <div className="navbar-dropdown">
-              {types.map((type) => (
-                <Link to={`/monsters/${type}`} className="navbar-item">
+              {types.map((type, index) => (
+                <Link
+                  to={`/monsters/${type}`}
+                  key={index}
+                  className="navbar-item"
+                >
                   {type}
                 </Link>
               ))}
@@ -87,16 +80,25 @@ function Navbar() {
             <a className="navbar-link">Monsters Two</a>
 
             <div className="navbar-dropdown">
-              {types2.map((type) => (
-                <Link to={`/monsters/${type}`} className="navbar-item">
+              {types2.map((type, index) => (
+                <Link
+                  to={`/monsters/${type}`}
+                  key={index}
+                  className="navbar-item"
+                >
                   {type}
                 </Link>
               ))}
             </div>
           </div>
 
-          {types3.map((type) => (
-            <Link to={`/types/${type}`} className="navbar-item">
+          {types3.map((type, index) => (
+            <Link
+              data-testid={`tombolType-${type}`}
+              to={`/types/${type}`}
+              key={index}
+              className="navbar-item"
+            >
               {type}
             </Link>
           ))}

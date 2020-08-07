@@ -18,11 +18,11 @@ function Home() {
   }, []);
 
   return (
-    <>
+    <div data-testid="home">
       {<YugiAll cards={cards} />}
       {loading && <Loader />}
       {error && <p className="has-text-white">{error.message}</p>}
-    </>
+    </div>
   );
 }
 
